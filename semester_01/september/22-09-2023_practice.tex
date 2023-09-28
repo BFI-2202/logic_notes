@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{geometry}
+\usepackage{multicol}
+\geometry{
+    left=1cm,right=1cm,top=2cm,bottom=2cm
+}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+
+\DeclareMathOperator{\sign}{sign}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black
+}
+
+\title{Математическая логика и теория алгоритмов}
+\author{Лисид Лаконский}
+\date{September 2023}
+
+\begin{document}
+\raggedright
+
+\maketitle
+
+\tableofcontents
+\pagebreak
+
+\section{Практическое занятие — 22.09.2023}
+
+Рассмотрим функцию четырех переменных $f(x_1, x_2, x_3, x_4) = x_1 x_2 \lor x_3 x_4 \lor \overline{x_1} \overline{x_2} x_3 \lor x_1 \overline{x_3} \overline{x_4} \lor x_2 \overline{x_3} \overline{x_4}$.
+
+Требуется минимизировать функцию методом карт Карно.
+
+\end{document}
