@@ -1,0 +1,100 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{geometry}
+\usepackage{multicol}
+\geometry{
+    left=1cm,right=1cm,top=2cm,bottom=2cm
+}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+
+\DeclareMathOperator{\sign}{sign}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black
+}
+
+\title{Математическая логика и теория алгоритмов}
+\author{Лисид Лаконский}
+\date{October 2023}
+
+\begin{document}
+\raggedright
+
+\maketitle
+
+\tableofcontents
+\pagebreak
+
+\section{Лекция — 12.10.2023}
+
+\subsection{Алгебра высказываний}
+
+Под \textbf{высказыванием} будем понимать будет понимать предложение, представляющее собой такое утверждение, о котором можно судить, истинно оно или ложно. По совокупности всех высказываний определяется \textbf{функция истинности}, принимающая значение ноль (если высказывание ложно) или один (если высказывание истинно):
+
+$\lambda (P) = \begin{cases}
+    1, \ \text{если высказывание } $P$ \text{ истинно} \\
+    0, \ \text{если высказывание } $P$ \text{ ложно} \\
+\end{cases}$
+
+Функцию $\lambda(P)$ называют \textbf{логическим значением} (значением истинности) высказывания $P$.
+
+\subsubsection{Логические операции}
+
+Выражения связываются с помощью \textbf{логических операций}.
+
+\textbf{Эквивалентностью} логических высказываний $P$ и $Q$ называется новое высказывание $P \leftrightarrow Q$ ($P$ эквивалентно $Q$; $P$ необходимо и достаточно для $Q$; $P$ тогда и только тогда, когда $Q$; $P$, если и только если $Q$), значение истинности которого задается следующей таблицей истинности:
+
+$$
+\begin{pmatrix}
+    \lambda(P) & \lambda(Q) & \lambda(P \leftrightarrow Q) \\
+    0 & 0 & 1 \\
+    0 & 1 & 0 \\
+    1 & 0 & 0 \\
+    1 & 1 & 1
+\end{pmatrix}
+$$
+
+\textbf{Импликацией} логических выражений $P$ и $Q$ называется новое высказывание $P \rightarrow Q$ (если $P$, то $Q$; из $P$ следует $Q$; $P$ влечёт $Q$; $P$ достаточно для $Q$; $Q$ необходимо для $P$), значение истинности которого задается следующей таблицей истинности:
+
+$$
+\begin{pmatrix}
+    \lambda(P) & \lambda(Q) & \lambda(P \rightarrow Q) \\
+    0 & 0 & 1 \\
+    0 & 1 & 1 \\
+    1 & 0 & 0 \\
+    1 & 1 & 1
+\end{pmatrix}
+$$
+
+В высказывании $P \rightarrow Q$ высказывание $P$ называется \textbf{посылкой}, а высказывание $Q$ называется \textbf{следствием}. Операцию импликации также называют \textbf{процессом рассуждения}.
+
+\subsubsection{Операции над функциями истинности}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item $0 \land 0 = 0$
+        \item $0 \land 1 = 0$
+        \item $\lambda(P \land Q) = \lambda(P) \land \lambda(Q)$
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item $\lnot 0 = 1$
+        \item $\lnot 1 = 0$
+        \item $\lambda(\lnot P) = \lnot \lambda (P)$
+    \end{enumerate}
+    \item $\lambda (P \lor Q) = \lambda (P) \lor \lambda (Q)$
+    \item $\lambda (P \rightarrow Q) = \lambda (P) \rightarrow \lambda (Q)$
+    \item $\lambda (P \leftrightarrow Q) = \lambda (P) \leftrightarrow \lambda (Q)$
+\end{enumerate}
+
+\end{document}
